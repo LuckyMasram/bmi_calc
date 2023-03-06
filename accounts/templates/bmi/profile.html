@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>User Profile</h2>
+<p>Welcome, {{ user.get_full_name }}!</p>
+
+{% if user_data %}
+<table>
+<tr>
+  <td><strong>Full Name:</strong></td>
+  <td>{{ user_data.full_name }}</td>
+</tr>
+<tr>
+  <td><strong>Gender:</strong></td>
+  <td>{{ user_data.gender }}</td>
+</tr>
+<tr>
+  <td><strong>Height:</strong></td>
+  <td>{{ user_data.height }}</td>
+</tr>
+<tr>
+  <td><strong>Weight:</strong></td>
+  <td>{{ user_data.weight }}</td>
+</tr>
+<tr>
+  <td><strong>BMI:</strong></td>
+  <td>{{ user_data.bmi }}</td>
+</tr>
+<tr>
+  <td><strong>Last BMI Calculation:</strong></td>
+  <td>{{ user_data.bmi_date|date:"M d, Y" }}</td>
+</tr>
+</table>
+
+<p><a href="{% url 'edit-profile' %}">Edit profile</a></p>
+{% else %}
+<p>No data found for this user. Please add your profile information.</p>
+{% endif %}
+
+{% endblock %}

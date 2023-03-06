@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Add Profile</h2>
+<form method="post">
+{% csrf_token %}
+<table>
+<tr>
+  <td>{{ form.full_name.label_tag }}</td>
+  <td>{{ form.full_name }}</td>
+</tr>
+<tr>
+  <td>{{ form.gender.label_tag }}</td>
+  <td>{{ form.gender }}</td>
+</tr>
+<tr>
+  <td>{{ form.height.label_tag }}</td>
+  <td>{{ form.height }}</td>
+</tr>
+<tr>
+  <td>{{ form.weight.label_tag }}</td>
+  <td>{{ form.weight }}</td>
+</tr>
+</table>
+
+<input type="submit" value="Save">
+</form>
+
+<p><a href="{% url 'profile' %}">Cancel</a></p>
+{% endblock %}
